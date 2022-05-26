@@ -54,7 +54,7 @@ int main(int argc, char** argv)
 	cout<<"--------------------Load images--------------------------"<<endl;
 	// test cases' index: 596, 1377, 1401, 1403, 1430
 	int img_index = 596;
-	boost::format img_path_template("./test_cases/ALL/%06d ");
+	boost::format img_path_template("../../test_cases/ALL/%06d ");
 	cout<<"Reading "<<(img_path_template%img_index).str()<<"F.jpg"<<endl;
 	cv::Mat img_F = cv::imread((img_path_template%img_index).str()+ "F.jpg");
 	cout<<"Reading "<<(img_path_template%img_index).str()<<"L.jpg"<<endl;

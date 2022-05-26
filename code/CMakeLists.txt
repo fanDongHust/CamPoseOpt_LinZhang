@@ -8,13 +8,11 @@ set(CMAKE_CXX_FLAGS "-std=c++11 -O3")
 
 
 find_package( OpenCV 3.1 REQUIRED )
-find_package( G2O REQUIRED )
 find_package( Sophus REQUIRED )
-
+set(Sophus_LIBRARIES libSophus.so)
 
 include_directories( 
     ${OpenCV_INCLUDE_DIRS}
-    ${G2O_INCLUDE_DIRS}
     "/usr/include/eigen3/"
 	${Sophus_INCLUDE_DIRS}
 )
@@ -34,8 +32,6 @@ target_link_libraries(surroundView
 add_executable(poseAdjust poseAdjust.cpp)
 target_link_libraries(poseAdjust
 	${OpenCV_LIBS}
-	${G2O_LIBS}
-	g2o_core
 	initKDT
 	surroundView
 	${Sophus_LIBRARIES})
@@ -43,8 +39,6 @@ target_link_libraries(poseAdjust
 add_executable(PAV2 poseAdjustV2.cpp)
 target_link_libraries(PAV2
 	${OpenCV_LIBS}
-	${G2O_LIBS}
-	g2o_core
 	initKDT
 	surroundView
 	${Sophus_LIBRARIES})
